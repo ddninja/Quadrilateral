@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+class Point
+{
+	int x;
+	int y;
+public:
+	Point(int x,int y)
+	{
+		this->x=x;
+		this->y=y;
+	}
+ 	
+   int getX()
+   {
+   	return x;
+   }
+   int getY()
+   {
+   	return y;
+   }
+};
+bool isCollinear(Point p1,Point p2,Point p3)
+    {
+	//making a line from two given point
+	   int mx= p1.getX()-p2.getX();
+	   int my=p1.getY()-p2.getY();
+	   if(p3.getY()*mx-p1.getY()*mx==my*p3.getX()-my*p1.getX())
+	   	 return true;
+	   return false;	
+    }
+int main()
+{
+	Point p1(2,3),p2(3,2),p3(4,5),p4(6,8);
+    if(isCollinear(p1,p2,p3)||isCollinear(p1,p2,p4)||isCollinear(p1,p3,p4)||isCollinear(p2,p3,p4))
+    	cout<<"Quadrilateral cannot be formed\n";
+    else cout<<"Yes,Quadrilateral can be formed\n";
+
+}
